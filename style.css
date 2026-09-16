@@ -1,0 +1,270 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #172033;
+  background: #f4f6f8;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(43, 108, 176, 0.08), transparent 28rem),
+    #f4f6f8;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 64px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #667085;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(36px, 6vw, 60px);
+  letter-spacing: -0.04em;
+}
+
+.subtitle {
+  max-width: 640px;
+  margin: 14px 0 0;
+  color: #667085;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.privacy-badge {
+  min-width: 280px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 1px solid #dce3ea;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.privacy-badge span {
+  font-size: 24px;
+}
+
+.privacy-badge strong,
+.privacy-badge small {
+  display: block;
+}
+
+.privacy-badge small {
+  margin-top: 3px;
+  color: #667085;
+}
+
+.card {
+  margin-top: 20px;
+  padding: 28px;
+  border: 1px solid #e4e7ec;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.05);
+}
+
+.card h2 {
+  margin: 0 0 22px;
+  font-size: 20px;
+}
+
+.upload-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.upload-box {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 24px;
+  border: 2px dashed #cfd6df;
+  border-radius: 18px;
+  background: #fafbfc;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s ease;
+}
+
+.upload-box:hover {
+  border-color: #667085;
+  background: #f7f9fb;
+}
+
+.upload-box input {
+  display: none;
+}
+
+.upload-icon {
+  font-size: 34px;
+  margin-bottom: 6px;
+}
+
+.upload-box span:not(.upload-icon) {
+  color: #667085;
+}
+
+.upload-box small {
+  margin-top: 8px;
+  color: #344054;
+  font-weight: 700;
+}
+
+.field-row {
+  display: flex;
+  align-items: end;
+  gap: 16px;
+}
+
+.field {
+  flex: 1;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.field input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 12px;
+  background: white;
+}
+
+.primary-button,
+.secondary-button {
+  border: 0;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.primary-button {
+  min-width: 180px;
+  color: white;
+  background: #172033;
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.secondary-button {
+  color: #172033;
+  background: #eef2f6;
+}
+
+.hidden {
+  display: none;
+}
+
+.results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.results-header h2 {
+  margin: 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.stat-card {
+  padding: 18px;
+  border-radius: 16px;
+  background: #f7f9fb;
+  border: 1px solid #eaecf0;
+}
+
+.stat-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #667085;
+  font-size: 13px;
+}
+
+.stat-card strong {
+  font-size: 22px;
+}
+
+.notice {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #f8fafc;
+  border-left: 4px solid #98a2b3;
+}
+
+.notice p {
+  margin: 8px 0 0;
+  color: #667085;
+  line-height: 1.55;
+}
+
+@media (max-width: 800px) {
+  .hero,
+  .field-row,
+  .results-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .privacy-badge {
+    min-width: 0;
+  }
+
+  .upload-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .primary-button {
+    width: 100%;
+  }
+}

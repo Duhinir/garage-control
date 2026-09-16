@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garage Control</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">CONTROL DE COBROS</p>
+        <h1>Garage Control</h1>
+        <p class="subtitle">
+          Cargá los comprobantes y el estado de cuenta para generar el reporte mensual.
+        </p>
+      </div>
+      <div class="privacy-badge">
+        <span>🔒</span>
+        <div>
+          <strong>Procesamiento local</strong>
+          <small>Los archivos no se suben a ningún servidor.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>1. Cargar archivos</h2>
+
+      <div class="upload-grid">
+        <label class="upload-box">
+          <input
+            id="receiptsInput"
+            type="file"
+            multiple
+            accept=".pdf,.png,.jpg,.jpeg,.xlsx,.xls,.csv"
+          />
+          <span class="upload-icon">📄</span>
+          <strong>Comprobantes</strong>
+          <span>Seleccionar uno o varios archivos</span>
+          <small id="receiptsStatus">Ningún archivo seleccionado</small>
+        </label>
+
+        <label class="upload-box">
+          <input
+            id="bankInput"
+            type="file"
+            accept=".xlsx,.xls,.csv,.pdf"
+          />
+          <span class="upload-icon">🏦</span>
+          <strong>Estado de cuenta</strong>
+          <span>Seleccionar archivo bancario</span>
+          <small id="bankStatus">Ningún archivo seleccionado</small>
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Período</h2>
+      <div class="field-row">
+        <div class="field">
+          <label for="monthInput">Mes del reporte</label>
+          <input id="monthInput" type="month" />
+        </div>
+
+        <button id="generateButton" class="primary-button" disabled>
+          Generar reporte
+        </button>
+      </div>
+    </section>
+
+    <section id="resultsSection" class="card hidden">
+      <div class="results-header">
+        <div>
+          <p class="eyebrow">RESULTADO</p>
+          <h2 id="reportTitle">Reporte generado</h2>
+        </div>
+        <button id="downloadButton" class="secondary-button">
+          Descargar HTML
+        </button>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-label">Comprobantes cargados</span>
+          <strong id="receiptCount">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-label">Estado bancario</span>
+          <strong id="bankLoaded">No</strong>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-label">Período</span>
+          <strong id="periodValue">-</strong>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-label">Estado</span>
+          <strong>Listo</strong>
+        </article>
+      </div>
+
+      <div class="notice">
+        <strong>Versión inicial</strong>
+        <p>
+          Por ahora esta pantalla valida la carga de archivos y genera un HTML de prueba.
+          En el próximo paso conectaremos la lógica real de conciliación:
+          comprobante → cliente → movimiento bancario.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
